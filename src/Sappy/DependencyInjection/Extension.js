@@ -9,7 +9,7 @@ function Extension (callback)
     return {
         compile: function (container)
         {
-            callback(container);
+            callback (container);
         }
     };
 }

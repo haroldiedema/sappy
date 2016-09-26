@@ -31,19 +31,17 @@ describe('Sappy.DependencyInjection.Definition', function () {
     });
 
     it('Should be able to handle method calls', function () {
-
         container.setParameter('number', 42);
         var _called = false,
             def     = new Definition({
-                function: function (num) { return { a: function (a) { _called = a + num }} },
-                arguments: ["%number%"],
+                function: function (num1, num2) { return { a: function (a, b) { _called = (num1 + num2 + a + b) }} },
+                arguments: ["%number%", 10],
                 method_calls: [
-                    ['a', [10]]
+                    ['a', ['%number%', 7]]
                 ]
-            }),
-            srv = def._initialize(container);
+            });
 
-        console.log(srv);
-        console.log(_called);
+        def._initialize(container);
+        expect(_called).toEqual(101);
     });
 });

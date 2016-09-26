@@ -101,7 +101,7 @@ function Container ()
         // Return the initialized service.
         return _services.get(id);
     };
-    
+
     /**
      * Returns true if the given service is defined.
      *
@@ -112,7 +112,7 @@ function Container ()
     {
         return _definitions.has(id);
     };
-    
+
     /**
      * Check for whether or not a service has been initialized.
      *
@@ -123,7 +123,7 @@ function Container ()
     {
         return _services.has(id);
     };
-    
+
     /**
      * Gets a parameter.
      *
@@ -144,7 +144,7 @@ function Container ()
     {
         return _parameters;
     };
-    
+
     /**
      * Checks if a parameter exists.
      *
@@ -155,7 +155,7 @@ function Container ()
     {
         return _parameters.has(name);
     };
-    
+
     /**
      * Sets a parameter.
      *

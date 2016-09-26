@@ -39,10 +39,13 @@ function Definition (config)
 
             container.getParameters().each(function (param, value) {
                 arg = arg.replace(new RegExp('%' + param + '%', 'g'), value);
+                if (! isNaN(arg)) {
+                    arg = +(parseFloat(arg));
+                }
             });
 
             // Service reference
-            if (arg.charAt(0) === '@') {
+            if (arg.toString().charAt(0) === '@') {
                 arg = container.get(arg.substr(1));
             }
 
